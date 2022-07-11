@@ -7,8 +7,16 @@ const nextConfig = {
 module.exports = {
   webpack(config) {
     config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack']
+      loader: '@svgr/webpack',
+      options: {
+        prettier: false,
+        svgo: true,
+        svgoConfig: {
+          plugins: [{ removeViewBox: false }],
+        },
+        titleProp: true,
+      },
+      test: /\.svg$/
     })
 
     return config
