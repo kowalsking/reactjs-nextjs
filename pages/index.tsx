@@ -1,24 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Htag, Button, P, Tag, Rating } from "../components";
 
 export default function Home(): JSX.Element {
-  const [counter, setCounter] = useState<number>(0);
-
-  useEffect(() => {
-    console.log("counter", counter);
-    return function cleanup() {
-      console.log("unmounting)");
-    };
-  });
+  const [rating, setRating] = useState<number>(4);
 
   return (
     <>
-      <Htag tag="h1">{counter}</Htag>
-      <Button
-        appearance="primary"
-        arrow="right"
-        onClick={() => setCounter((x) => x + 1)}
-      >
+      <Htag tag="h1">Hello</Htag>
+      <Button appearance="primary" arrow="right">
         Button!
       </Button>
       <Button appearance="ghost">Button!</Button>
@@ -32,7 +21,7 @@ export default function Home(): JSX.Element {
       <Tag size="s" color="primary">
         small
       </Tag>
-      <Rating rating={4} />
+      <Rating rating={rating} isEditable setRating={setRating} />
     </>
   );
 }
