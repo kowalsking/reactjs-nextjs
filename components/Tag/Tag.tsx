@@ -1,8 +1,12 @@
 import { TagProps } from "./Tag.props";
 import styles from "./Tag.module.css";
 import cn from "classnames";
+import { useState } from 'react';
 
 export const Tag = ({ size = 's', children, color = 'ghost', href, className, ...props }: TagProps): JSX.Element => {
+
+  useState
+
   return (
     <div 
       className={cn(styles.tag, className, {
