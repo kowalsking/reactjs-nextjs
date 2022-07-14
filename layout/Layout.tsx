@@ -6,7 +6,7 @@ import { Sidebar } from "./SIdebar/Sidebar";
 import { Footer } from "./Footer/Footer";
 import { FunctionComponent } from "react";
 
-export const Layout = ({ children }: LayoutProps): JSX.Element => {
+const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <>
       <Header />
