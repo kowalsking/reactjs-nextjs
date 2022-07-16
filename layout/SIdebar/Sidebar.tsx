@@ -6,7 +6,6 @@ import { Menu } from "../Menu/Menu";
 export const Sidebar = ({ ...props }: SidebarProps): JSX.Element => {
   return (
     <div {...props}>
-      123132
       <Menu />
     </div>
   );
