@@ -11,7 +11,7 @@ export interface IAppContext {
 export const AppContext = createContext<IAppContext>({
   menu: [],
   firstCategory: TopLevelCategory.Courses,
-});
+})
 
 export const AppContextProvider = ({
   menu,
