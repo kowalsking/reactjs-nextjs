@@ -20,7 +20,7 @@ export const AppContextProvider = ({
 }: PropsWithChildren<IAppContext>): JSX.Element => {
   const [menuState, setMenuState] = useState<MenuItem[]>(menu);
   const setMenu = (newMenu: MenuItem[]) => {
-    setMenuState(newMenu);
+    setMenuState(newMenu)
   };
 
   return (
