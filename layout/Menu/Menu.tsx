@@ -25,7 +25,7 @@ const firstLevelMenu: FirstLevelMenuItem[] = [
   },
   {
     route: "books",
-    name: "книги",
+    name: "Книги",
     icon: <BooksIcon />,
     id: TopLevelCategory.Books,
   },
@@ -39,25 +39,25 @@ const firstLevelMenu: FirstLevelMenuItem[] = [
 
 export const Menu = (): JSX.Element => {
   const { menu, setMenu, firstCategory } = useContext(AppContext);
-
+  console.log("menu");
   const buildFirstLevel = () => {
     return (
       <>
-        {firstLevelMenu.map((menu) => {
-          <div key={menu.route}>
-            <a href={`/${menu.route}`}>
+        {firstLevelMenu.map((m) => (
+          <div key={m.route}>
+            <a href={`/${m.route}`}>
               <div
                 className={cn(styles.firstLevel, {
-                  [styles.firstLevelActive]: menu.id === firstCategory,
+                  [styles.firstLevelActive]: m.id === firstCategory,
                 })}
               >
-                {menu.icon}
-                <span>{menu.name}</span>
+                {m.icon}
+                <span>{m.name}</span>
               </div>
             </a>
-            {menu.id === firstCategory && buildSecondLevel(menu)}
-          </div>;
-        })}
+            {m.id === firstCategory && buildSecondLevel(m)}
+          </div>
+        ))}
       </>
     );
   };
@@ -88,6 +88,7 @@ export const Menu = (): JSX.Element => {
         className={cn(styles.thirdLevel, {
           [styles.thirdLevelActive]: true,
         })}
+        key={p._id}
       >
         {p.category}
       </a>
