@@ -86,7 +86,7 @@ export const Menu = (): JSX.Element => {
       <a
         href={`/${route}/${p.alias}`}
         className={cn(styles.thirdLevel, {
-          [styles.thirdLevelActive]: true,
+          [styles.thirdLevelActive]: false,
         })}
         key={p._id}
       >

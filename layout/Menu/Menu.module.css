@@ -6,6 +6,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 25px;
+  margin-top: 20px;
 }
 
 .firstLevelActive,
@@ -36,4 +37,25 @@
   padding-left: 32px;
 
   border-left: 1px solid #DFDFDF;
+}
+
+.secondLevelBlockOpened:last-child {
+  margin-bottom: 20px;
+}
+
+.thirdLevel {
+  margin-bottom: 10px;
+  display: block;
+  cursor: poiner;
+
+  color: var(--gray-dark);
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.thirdLevelActive,
+.thirdLevel:hover {
+  color: var(--primary);
 }
