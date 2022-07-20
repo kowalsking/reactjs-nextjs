@@ -3,7 +3,7 @@ import cn from "classnames";
 import { format } from "date-fns";
 import { useContext, useEffect } from "react";
 import { AppContext } from "../../context/app.context";
-import { FirstLevelMenuItem } from "../../interfaces/menu.interface";
+import { FirstLevelMenuItem, PageItem } from "../../interfaces/menu.interface";
 import CoursesIcon from "./icons/courses.svg";
 import ServicesIcon from "./icons/services.svg";
 import BooksIcon from "./icons/books.svg";
@@ -55,15 +55,44 @@ export const Menu = (): JSX.Element => {
                 <span>{menu.name}</span>
               </div>
             </a>
+            {menu.id === firstCategory && buildSecondLevel(menu)}
           </div>;
         })}
       </>
     );
   };
 
-  const buildSecondLevel = () => {};
+  const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
+    return (
+      <div>
+        {menu.map((m) => (
+          <div key={m._id.secondCategory}>
+            <div className={styles.secondLevel}>{m._id.secondCategory}</div>
+            <div
+              className={cn(styles.secondLevelBlock, {
+                [styles.secondLevelBlockOpened]: m.isOpened,
+              })}
+            >
+              {buildThirdLevel(m.pages, menuItem.route)}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
 
-  const buildThirdLevel = () => {};
+  const buildThirdLevel = (pages: PageItem[], route: string) => {
+    return pages.map((p) => (
+      <a
+        href={`/${route}/${p.alias}`}
+        className={cn(styles.thirdLevel, {
+          [styles.thirdLevelActive]: true,
+        })}
+      >
+        {p.category}
+      </a>
+    ));
+  };
 
   return <div className={styles.menu}>{buildFirstLevel()}</div>;
 };
