@@ -15,6 +15,7 @@ export const Card = ({
       })}
       {...props}
     >
+      volosatka
       {children}
     </div>
   );

@@ -1,4 +1,4 @@
-import { Htag, Tag } from "../../components";
+import { HhData, Htag, Tag } from "../../components";
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import styles from "./TopPageComponent.module.css";
 
@@ -31,7 +31,7 @@ export const TopPageComponent = ({
         )}
         <span>Сортування</span>
       </div>
-      <div className={styles.hh}></div>
+      <HhData {...page.hh} />
     </div>
   );
 };
