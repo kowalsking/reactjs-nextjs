@@ -1,5 +1,5 @@
 import { CardProps } from "./Card.props";
-import styles from "./card.module.css";
+import styles from "./Card.module.css";
 import cn from "classnames";
 
 export const Card = ({
@@ -15,7 +15,6 @@ export const Card = ({
       })}
       {...props}
     >
-      volosatka
       {children}
     </div>
   );
