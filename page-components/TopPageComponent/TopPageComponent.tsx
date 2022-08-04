@@ -1,4 +1,4 @@
-import { HhData, Htag, Tag } from "../../components";
+import { HhData, Htag, Tag, Advantages } from "../../components";
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import styles from "./TopPageComponent.module.css";
 import { TopLevelCategory } from '../../interfaces/page.interface';
@@ -33,6 +33,7 @@ export const TopPageComponent = ({
         <span>Сортування</span>
       </div>
       {firstCategory === TopLevelCategory.Courses &&  <HhData {...page.hh} />}
+      <Advantages />
     </div>
   );
 };

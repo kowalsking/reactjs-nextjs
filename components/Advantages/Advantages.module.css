@@ -1,0 +1,5 @@
+.listItem {
+  display: grid;
+  grid-template-columns: 50px auto;
+  gap: 40px;
+}
