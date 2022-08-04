@@ -1,7 +1,8 @@
-import { HhData, Htag, Tag, Advantages, P } from "../../components";
+import { HhData, Htag, Tag, Advantages, P, Sort } from "../../components";
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import styles from "./TopPageComponent.module.css";
 import { TopLevelCategory } from '../../interfaces/page.interface';
+import { SortEnum } from '../../components/Sort/Sort.props';
 
 export const TopPageComponent = ({
   page,
@@ -17,7 +18,7 @@ export const TopPageComponent = ({
             {products.length}
           </Tag>
         )}
-        <span>Сортування</span>
+        <Sort sort={SortEnum.Rating} setSort={() => {}} />
       </div>
       {products && products.length}
       <div>
