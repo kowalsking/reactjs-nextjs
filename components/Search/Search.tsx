@@ -43,5 +43,5 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
         <GlassIcon />
       </Button>
     </div>
-  );
-};
+  )
+}
