@@ -1,7 +1,6 @@
-import { ProductProps } from "./Product.props";
-import styles from "./Product.module.css";
-import cn from "classnames";
 import { Button, Card, Rating, Tag } from '..';
+import styles from "./Product.module.css";
+import { ProductProps } from "./Product.props";
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
   return (
@@ -34,5 +33,5 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
         <Button appearance='ghost' arrow={'right'}>Читати відгуки</Button>
       </div>
     </Card>
-  );
-};
+  )
+}
