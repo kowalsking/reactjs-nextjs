@@ -50,7 +50,7 @@
 }
 
 .title {
-	align-self: center;
+	align-self: flex-end;
 
 	font-size: 20px;
 	font-weight: 600;
@@ -59,6 +59,29 @@
 
 .price,
 .credit {
+	align-self: flex-end;
+
 	font-size: 20px;
 	line-height: 27px;
+}
+
+.month {
+	font-style: 14px;
+	line-height: 19px;
+}
+
+.oldPrice {
+	margin-left: 5px;
+}
+
+.rating {
+	align-self: flex-end;
+}
+
+.priceTitle,
+.creditTitle,
+.rateTitle {
+	font-weight: 300;
+	font-style: 14px;
+	line-height: 19px;
 }
