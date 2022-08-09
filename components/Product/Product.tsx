@@ -1,5 +1,5 @@
 import { Button, Card, Divider, Rating, Tag } from '..';
-import { priceUah } from '../../helpers/helpers';
+import { declOfNum, priceUah } from '../../helpers/helpers';
 import styles from "./Product.module.css";
 import { ProductProps } from "./Product.props";
 
@@ -19,7 +19,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       <div className={styles.tags}>{product.categories.map(c => <Tag key={c} className={styles.category}  color='ghost'>{c}</Tag>)}</div>
       <div className={styles.priceTitle}>ціна</div>
       <div className={styles.creditTitle}>кредит</div>
-      <div className={styles.rateTitle}>{product.reviewCount} відгуків</div>
+      <div className={styles.rateTitle}>{product.reviewCount} {declOfNum(product.reviewCount, ['відгук', 'відгука', 'відгуків'])}</div>
       <Divider className={styles.hr} />
       <div className={styles.description}>{product.description}</div>
       <div className={styles.feature}>features</div>
