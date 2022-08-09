@@ -57,6 +57,10 @@
 	line-height: 27px;
 }
 
+.category {
+	margin-top: 7px;
+}
+
 .price,
 .credit {
 	align-self: flex-end;
@@ -78,10 +82,45 @@
 	align-self: flex-end;
 }
 
+.description {
+	margin-bottom: 15px;
+
+	font-style: 16px;
+	line-height: 24px;
+}
+
 .priceTitle,
 .creditTitle,
 .rateTitle {
 	font-weight: 300;
 	font-style: 14px;
 	line-height: 19px;
+}
+
+.reviewButton {
+	margin-left: 20px;
+}
+
+.advBlock {
+	font-size: 16px;
+	line-height: 22px;
+}
+
+.advTitle {
+	margin-bottom: 5px;
+
+	font-weight: bold;
+}
+
+.advantages {
+	margin-bottom: 20px;
+	padding-left: 15px;
+
+	border-left: 2px solid var(--green);
+}
+
+.disadvantages {
+	padding-left: 15px;
+
+	border-left: 2px solid var(--red);
 }
