@@ -44,3 +44,21 @@
 .advBlock {
 	grid-column: middle / end;
 }
+
+.logo img {
+	border-radius: 5px;
+}
+
+.title {
+	align-self: center;
+
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 27px;
+}
+
+.price,
+.credit {
+	font-size: 20px;
+	line-height: 27px;
+}
