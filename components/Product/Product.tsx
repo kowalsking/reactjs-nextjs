@@ -3,6 +3,7 @@ import { declOfNum, priceUah } from '../../helpers/helpers';
 import styles from "./Product.module.css";
 import { ProductProps } from "./Product.props";
 import Image from 'next/image'
+import cn from "classnames";
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
   return (
@@ -49,7 +50,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
           <div>{product.disAdvantages}</div>
         </div>}
       </div>
-      <Divider className={styles.hr} />
+      <Divider className={cn(styles.hr, styles.hr2)} />
       <div className={styles.actions}>
         <Button appearance='primary'>Дізнатись детальніше</Button>
         <Button appearance='ghost' arrow={'right'} className={styles.reviewButton}>Читати відгуки</Button>
