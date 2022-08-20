@@ -1,4 +1,4 @@
-import { Button, Card, Divider, Rating, Tag } from '..';
+import { Button, Card, Divider, Rating, Review, Tag } from '..';
 import { declOfNum, priceUah } from '../../helpers/helpers';
 import styles from "./Product.module.css";
 import { ProductProps } from "./Product.props";
@@ -71,7 +71,9 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
         [styles.opened]: isReviewOpened,
         [styles.closed]: !isReviewOpened,
       })}>
-        isReviewOpened
+        {product.reviews.map(r => (
+          <Review key={r._id} review={r} />
+        ))}
       </Card>
     </>
   )
