@@ -24,7 +24,7 @@ export const ReviewForm = ({
   } = useForm<IReviewForm>();
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  const [error, setIsError] = useState<string>();
+  const [error, setError] = useState<string>();
 
   const onSubmit = async (formData: IReviewForm) => {
     try {
@@ -39,10 +39,10 @@ export const ReviewForm = ({
         setIsSuccess(true);
         reset();
       } else {
-        setIsError("Something went wrong...");
+        setError("Something went wrong...");
       }
     } catch (error: any) {
-      setIsError(error.message);
+      setError(error.message);
     }
   };
 
@@ -101,13 +101,19 @@ export const ReviewForm = ({
         <div className={cn(styles.success, styles.panel)}>
           <div className={styles.successTitle}>Ваш відгук надіслано</div>
           <div>Дякуємо, руский корабель іде нахуй!</div>
-          <CloseIcon className={styles.close} />
+          <CloseIcon
+            className={styles.close}
+            onClick={() => setIsSuccess(false)}
+          />
         </div>
       )}
       {error && (
         <div className={cn(styles.error, styles.panel)}>
-          {error}
-          <CloseIcon className={styles.close} />
+          Бля як же я ненавиджу москалів...
+          <CloseIcon
+            className={styles.close}
+            onClick={() => setError(undefined)}
+          />
         </div>
       )}
     </form>

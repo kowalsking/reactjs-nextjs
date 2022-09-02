@@ -47,7 +47,7 @@
 	background-color: var(--red-light);
 }
 
-.error .close line {
+.error .close path {
 	stroke: var(--red);
 }
 
