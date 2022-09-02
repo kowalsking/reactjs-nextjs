@@ -35,7 +35,7 @@ export const ReviewForm = ({
         />
         <Input
           {...register("title", {
-            required: { value: true, message: "Вкажіть заголвок" },
+            required: { value: true, message: "Вкажіть заголoвок" },
           })}
           placeholder="Заголовок відгуку"
           className={styles.title}
@@ -46,12 +46,14 @@ export const ReviewForm = ({
           <Controller
             control={control}
             name="rating"
+            rules={{ required: { value: true, message: "Вкажіть рейтинг" } }}
             render={({ field }) => (
               <Rating
                 isEditable
                 rating={field.value}
                 ref={field.ref}
                 setRating={field.onChange}
+                error={errors.rating}
               />
             )}
           />
