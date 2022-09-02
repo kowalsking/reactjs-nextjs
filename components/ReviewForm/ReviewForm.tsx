@@ -26,7 +26,12 @@ export const ReviewForm = ({
           placeholder="Ім'я"
           error={errors.name}
         />
-        <Input {...register('title')} placeholder="Заголовок відгуку" className={styles.title} />
+        <Input
+          {...register('title', { required: { value: true, message: "Вкажіть заголвок"}})}
+          placeholder="Заголовок відгуку"
+          className={styles.title}
+          error={errors.title}
+        />
         <div className={styles.rating}>
           <span>Оцінка: </span>
           <Controller 
