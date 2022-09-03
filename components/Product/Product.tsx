@@ -13,7 +13,13 @@ export const Product = ({
 }: ProductProps): JSX.Element => {
   const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
   const reviewRef = useRef<HTMLDivElement>(null);
-
+  const scrollToReview = () => {
+    setIsReviewOpened(true);
+    reviewRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
   return (
     <div className={className} {...props}>
       <Card className={styles.product}>
@@ -50,8 +56,10 @@ export const Product = ({
         <div className={styles.priceTitle}>ціна</div>
         <div className={styles.creditTitle}>кредит</div>
         <div className={styles.rateTitle}>
-          {product.reviewCount}{" "}
-          {declOfNum(product.reviewCount, ["відгук", "відгука", "відгуків"])}
+          <a href="#ref" onClick={scrollToReview}>
+            {product.reviewCount}{" "}
+            {declOfNum(product.reviewCount, ["відгук", "відгука", "відгуків"])}
+          </a>
         </div>
         <Divider className={styles.hr} />
         <div className={styles.description}>{product.description}</div>
