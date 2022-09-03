@@ -8,10 +8,23 @@ import { FirstLevelMenuItem, PageItem } from "../../interfaces/menu.interface";
 import Link from "next/Link";
 import { useRouter } from "next/router";
 import { firstLevelMenu } from "../../helpers/helpers";
+import { motion } from "framer-motion";
 
 export const Menu = (): JSX.Element => {
   const { menu, setMenu, firstCategory } = useContext(AppContext);
+
   const router = useRouter();
+
+  const variants = {
+    visible: {
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+    hidden: {},
+  };
+
   const openSecondLevel = (secondCategory: string) => {
     setMenu &&
       setMenu(
@@ -65,13 +78,13 @@ export const Menu = (): JSX.Element => {
               >
                 {m._id.secondCategory}
               </div>
-              <div
-                className={cn(styles.secondLevelBlock, {
-                  [styles.secondLevelBlockOpened]: m.isOpened,
-                })}
+              <motion.div
+                layout
+                variants={variants}
+                className={cn(styles.secondLevelBlock)}
               >
                 {buildThirdLevel(m.pages, menuItem.route)}
-              </div>
+              </motion.div>
             </div>
           );
         })}
