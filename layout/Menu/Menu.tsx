@@ -17,12 +17,26 @@ export const Menu = (): JSX.Element => {
 
   const variants = {
     visible: {
+      marginBottom: 20,
       transition: {
         when: "beforeChildren",
         staggerChildren: 0.1,
       },
     },
-    hidden: {},
+    hidden: {
+      marginBottom: 0,
+    },
+  };
+
+  const variantsChildren = {
+    visible: {
+      opacity: 1,
+      height: 29,
+    },
+    hidden: {
+      opacity: 0,
+      height: 0,
+    },
   };
 
   const openSecondLevel = (secondCategory: string) => {
@@ -81,6 +95,8 @@ export const Menu = (): JSX.Element => {
               <motion.div
                 layout
                 variants={variants}
+                initial={m.isOpened ? "visible" : "hidden"}
+                animate={m.isOpened ? "visible" : "hidden"}
                 className={cn(styles.secondLevelBlock)}
               >
                 {buildThirdLevel(m.pages, menuItem.route)}
@@ -95,16 +111,18 @@ export const Menu = (): JSX.Element => {
   const buildThirdLevel = (pages: PageItem[], route: string) => {
     return pages.map((p) => {
       return (
-        <Link key={p._id} href={`/${route}/${p.alias}`}>
-          <a
-            className={cn(styles.thirdLevel, {
-              [styles.thirdLevelActive]:
-                `/${route}/${p.alias}` === router.asPath,
-            })}
-          >
-            {p.category}
-          </a>
-        </Link>
+        <motion.div key={p._id} variants={variantsChildren}>
+          <Link href={`/${route}/${p.alias}`}>
+            <a
+              className={cn(styles.thirdLevel, {
+                [styles.thirdLevelActive]:
+                  `/${route}/${p.alias}` === router.asPath,
+              })}
+            >
+              {p.category}
+            </a>
+          </Link>
+        </motion.div>
       );
     });
   };
