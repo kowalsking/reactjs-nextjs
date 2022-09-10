@@ -28,10 +28,10 @@
 	text-transform: uppercase;
 
 	color: var(--gray-dark);
+	outline-offset: -1px;
 
 	font-size: 12px;
 	font-weight: 300;
-	line-height: 16px;
 }
 
 .secondBlock {
@@ -40,8 +40,6 @@
 	padding-left: 32px;
 
 	border-left: 1px solid #dfdfdf;
-
-	outline-offset: -1px;
 }
 
 .secondLevelBlock {
