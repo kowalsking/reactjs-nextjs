@@ -11,6 +11,7 @@ import { useState } from "react";
 
 export const ReviewForm = ({
   productId,
+  isOpened,
   children,
   className,
   ...props
@@ -55,6 +56,7 @@ export const ReviewForm = ({
           })}
           placeholder="Ім'я"
           error={errors.name}
+          tabIndex={isOpened ? 0 : -1}
         />
         <Input
           {...register("title", {
@@ -63,6 +65,7 @@ export const ReviewForm = ({
           placeholder="Заголовок відгуку"
           className={styles.title}
           error={errors.title}
+          tabIndex={isOpened ? 0 : -1}
         />
         <div className={styles.rating}>
           <span>Оцінка: </span>
@@ -77,6 +80,7 @@ export const ReviewForm = ({
                 ref={field.ref}
                 setRating={field.onChange}
                 error={errors.rating}
+                tabIndex={isOpened ? 0 : -1}
               />
             )}
           />
@@ -87,10 +91,13 @@ export const ReviewForm = ({
           })}
           placeholder="Текст відгуку"
           className={styles.description}
+          tabIndex={isOpened ? 0 : -1}
           error={errors.description}
         />
         <div className={styles.submit}>
-          <Button appearance="primary">Відправити</Button>
+          <Button appearance="primary" tabIndex={isOpened ? 0 : -1}>
+            Відправити
+          </Button>
           <span className={styles.info}>
             * Перед публікацією переконайтесь що ви ненавидите русню і донатите
             на ЗСУ
@@ -109,7 +116,7 @@ export const ReviewForm = ({
       )}
       {error && (
         <div className={cn(styles.error, styles.panel)}>
-          Бля як же я ненавиджу москалів...
+          Як же я ненавиджу москалів...
           <CloseIcon
             className={styles.close}
             onClick={() => setError(undefined)}
