@@ -110,7 +110,7 @@ export const Product = motion(
                 className={styles.reviewButton}
                 onClick={() => setIsReviewOpened(!isReviewOpened)}
               >
-                Читати відгуки
+                Читати відгуки!
               </Button>
             </div>
           </Card>
