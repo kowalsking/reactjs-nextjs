@@ -27,4 +27,4 @@ export const Tag = ({ size = 's', children, color = 'ghost', href, className, ..
       }
     </div>
   );
-};
+}
