@@ -116,22 +116,28 @@ export const ReviewForm = ({
         </div>
       </div>
       {isSuccess && (
-        <div className={cn(styles.success, styles.panel)}>
+        <div className={cn(styles.success, styles.panel)} role="alert">
           <div className={styles.successTitle}>Ваш відгук надіслано</div>
           <div>Дякуємо, руский корабель іде нахуй!</div>
-          <CloseIcon
+          <button
             className={styles.close}
             onClick={() => setIsSuccess(false)}
-          />
+            aria-label="Закрити сповіщення"
+          >
+            <CloseIcon />
+          </button>
         </div>
       )}
       {error && (
-        <div className={cn(styles.error, styles.panel)}>
+        <div className={cn(styles.error, styles.panel)} role="alert">
           Як же я ненавиджу москалів...
-          <CloseIcon
+          <button
             className={styles.close}
             onClick={() => setError(undefined)}
-          />
+            aria-label="Закрити сповіщення"
+          >
+            <CloseIcon />
+          </button>
         </div>
       )}
     </form>
