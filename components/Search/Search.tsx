@@ -1,33 +1,33 @@
 import { SearchProps } from "./Search.props";
 import styles from "./Search.module.css";
-import GlassIcon from './glass.svg';
+import GlassIcon from "./glass.svg";
 import cn from "classnames";
-import { Button } from '../Button/Button';
-import { Input } from '../Input/Input';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { Button } from "../Button/Button";
+import { Input } from "../Input/Input";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
-  const [search, setSearch] = useState<string>('')
-  const router = useRouter()
+  const [search, setSearch] = useState<string>("");
+  const router = useRouter();
 
   const goToSearch = () => {
     router.push({
-      pathname: '/search',
+      pathname: "/search",
       query: {
-        q: search
-      }
-    })
-  }
+        q: search,
+      },
+    });
+  };
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      goToSearch()
+    if (e.key === "Enter") {
+      goToSearch();
     }
-  }
+  };
 
   return (
-    <div className={cn(className, styles.search)} {...props}>
+    <form className={cn(className, styles.search)} {...props} role="search">
       <Input
         className={styles.input}
         placeholder="Пошук..."
@@ -43,6 +43,6 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
       >
         <GlassIcon />
       </Button>
-    </div>
-  )
-}
+    </form>
+  );
+};
