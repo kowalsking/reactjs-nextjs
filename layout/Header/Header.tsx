@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 import cn from "classnames";
 import Logo from "../logo.svg";
 import { ButtonIcon } from "../../components/ButtonIcon/ButtonIcon";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Sidebar } from "../Sidebar/Sidebar";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -16,6 +16,8 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
     setIsOpened(false);
   }, [router]);
 
+  const shouldReduceMotion = useReducedMotion();
+
   const variants = {
     opened: {
       opacity: 1,
@@ -25,7 +27,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
       },
     },
     closed: {
-      opacity: 0,
+      opacity: shouldReduceMotion ? 1 : 0,
       x: "100%",
     },
   };
