@@ -2,7 +2,6 @@ import { Button, Card, Divider, Rating, Review, ReviewForm, Tag } from "..";
 import { declOfNum, priceUah } from "../../helpers/helpers";
 import styles from "./Product.module.css";
 import { ProductProps } from "./Product.props";
-import Image from "next/image";
 import cn from "classnames";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
@@ -34,7 +33,7 @@ export const Product = motion(
         <div className={className} {...props} ref={ref}>
           <Card className={styles.product}>
             <div className={styles.logo}>
-              <Image
+              <img
                 src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
                 alt={product.title}
                 width={70}
