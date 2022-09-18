@@ -29,7 +29,7 @@ export const firstLevelMenu: FirstLevelMenuItem[] = [
     name: "Товари",
     icon: <ProductsIcon />,
     id: TopLevelCategory.Products,
-  },
+  }
 ];
 
 export const priceUah = (price: number): string =>
